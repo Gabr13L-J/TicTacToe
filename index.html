@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TicTacToet</title>
-    <link href="style.css" rel="stylesheet"/> 
-</head>
-<body>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
     <h1>Tic Tac Toe</h1>
-    <div id="squareBoard">
-    <div class="square1">1</div>
-    <div class="square2">2</div>
-    <div class="square3">3</div>
-    <div class="square4">4</div>
-    <div class="square5">5</div>
-    <div class="square6">6</div>
-    <div class="square7">7</div>
-    <div class="square8">8</div>
-    <div class="square9">9</div>
+    <span id="name1"></span>
+    <span id="name2"></span>
+    <div id="board">
+      <div class="cell" id="00"></div>
+      <div class="cell" id="01"></div>
+      <div class="cell" id="02"></div>
+      <div class="cell" id="10"></div>
+      <div class="cell" id="11"></div>
+      <div class="cell" id="12"></div>
+      <div class="cell" id="20"></div>
+      <div class="cell" id="21"></div>
+      <div class="cell" id="22"></div>
     </div>
 
-    
-    
-    <div id="player1"></div>
-     <div id="playeer2"></div>
+    <!-- <div id="player1"></div>
+    <span></span>
+    <div id="player2"></div>
+    <span></span> -->
+    <form id="form">
+      <label>number of players: <input id="number" type="number" min="1" max="2"></label>
+      <br /><br />
+      <label> player: <input id="player1" type="text" /></label>
+      <br /><br />
+      <label>player: <input id="player2" type="text" /></label>
+      <br /><br />
+      <button id="start">Start</button>
+      <button type="submit">Reset</button>
+    </form>
+    <p id="log"></p>
 
+  
 
-   <script src="index.js"></script>
-</body>
-</html>  
+    <script src="app.js"></script>
+  </body>
+</html>
