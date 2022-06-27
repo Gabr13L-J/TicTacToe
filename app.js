@@ -7,13 +7,7 @@ let gameState = {
   ],
   activePlayer: 0,
 };
-// maybe a dozen or so helper functions for tiny pieces of the interface
-function updateState() {
-  //we need to update gameState.board
-}
-function updateHTML() {
-  //update what the user sees based on new gameState
-}
+
 function checkWin() {
   return getRow() || getColumn() || getDiagonalLeft() || getDiagonalRight();
 }
@@ -101,20 +95,7 @@ function isFull() {
   }
   return true;
 }
-//use sudoku principles here
-// get all rows and check
-//use checkXorO to check
-// get all columns and check them
-//use checkXorO to check
-// get all diagonal and check those
-//use checkXorO to check
 
-function checkXorO() {
-  //if x won. return x.
-  //if o won. return o.
-  //if no one won then return false
-}
-// listeners
 function onBoardClick(event) {
   let row = event.target.id.charAt(0);
   let col = event.target.id.charAt(1);
@@ -130,34 +111,32 @@ function onBoardClick(event) {
       console.log(gameState.board);
       gameState.activePlayer = 0;
     }
-    // update state, maybe with another dozen or so helper functions...
-    // updateState();
-    // updateHTML();
-    //checkwin should return the winner. or false.
+    
     let win = checkWin();
     if (win) {
+      board.removeEventListener("click", onBoardClick);
       if (gameState.activePlayer == 1) {
         document.getElementById("log").innerHTML = "X wins";
       } else {
         document.getElementById("log").innerHTML = "O wins";
       }
-      //do winner things here
+    
     } else {
       if (isFull()) {
         document.getElementById("log").innerHTML = "Draw";
       }
-      //change activePlayer
+
     }
   }
 }
 function startGame(event) {
   event.preventDefault();
-  console.log (document.getElementById("player1").value);
+  console.log(document.getElementById("player1").value);
   document.getElementById("name1").innerHTML =
     document.getElementById("player1").value;
-    document.getElementById("name2").innerHTML =
+  document.getElementById("name2").innerHTML =
     document.getElementById("player2").value;
+  board.addEventListener("click", onBoardClick);
   // console.log("startGame", player1.value);
 }
-board.addEventListener("click", onBoardClick);
 document.getElementById("start").addEventListener("click", startGame);
